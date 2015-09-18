@@ -18,7 +18,7 @@
 
 ![basic-lifecycle-savestate](basic-lifecycle-savestate.png)
 
-**Figure 2.** 当系统开始停止Activity时，只有在Activity实例会需要重新创建的情况下才会调用到<a href="http://developer.android.com/reference/android/app/Activity.html#onSaveInstanceState(android.os.Bundle)">onSaveInstanceState()</a> (1) ，在这个方法里面可以指定额外的状态数据到Bunde中。如果这个Activity被destroyed然后这个实例又需要被重新创建时，系统会传递在 (1) 中的状态数据到 onCreate()  (2) 与 <a href="http://developer.android.com/reference/android/app/Activity.html#onRestoreInstanceState(android.os.Bundle)">onRestoreInstanceState()</a>(3).
+**Figure 2.** 当系统开始停止Activity时，只有在Activity实例会需要重新创建的情况下才会调用到<a href="http://developer.android.com/reference/android/app/Activity.html#onSaveInstanceState(android.os.Bundle)">onSaveInstanceState()</a> (1) ，在这个方法里面可以指定额外的状态数据到Bundle中。如果这个Activity被destroyed然后这个实例又需要被重新创建时，系统会传递在 (1) 中的状态数据到 onCreate()  (2) 与 <a href="http://developer.android.com/reference/android/app/Activity.html#onRestoreInstanceState(android.os.Bundle)">onRestoreInstanceState()</a>(3).
 
 *(通常来说，跳转到其他的activity或者是点击Home都会导致当前的activity执行onSaveInstanceState，因为这种情况下的activity都是有可能会被destory并且是需要保存状态以便后续恢复使用的，而从跳转的activity点击back回到前一个activity，那么跳转前的activity是执行退栈的操作，所以这种情况下是不会执行onSaveInstanceState的，因为这个activity不可能存在需要重建的操作)*
 
